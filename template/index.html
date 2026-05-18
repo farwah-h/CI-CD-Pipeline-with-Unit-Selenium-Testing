@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        input { margin: 5px; padding: 5px; }
+        button { padding: 5px 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>User Management System</h1>
+    
+    <h2>Add New User</h2>
+    <form action="/add" method="POST" id="addUserForm">
+        <input type="text" name="name" id="userName" placeholder="Name" required>
+        <input type="email" name="email" id="userEmail" placeholder="Email" required>
+        <button type="submit" id="submitBtn">Add User</button>
+    </form>
+    
+    <h2>Users List</h2>
+    <table id="usersTable">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
